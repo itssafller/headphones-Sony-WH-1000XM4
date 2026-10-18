@@ -9,7 +9,7 @@ set(CMAKE_CXX_STANDARD_REQUIRED ON)
 find_package(Qt6 REQUIRED COMPONENTS Widgets Bluetooth)
 qt_standard_project_setup()
 
-qt_add_executable(headphones src/main.cpp)
+qt_add_executable(headphones src/main.cpp src/ui/MainWindow.h src/ui/MainWindow.cpp)
 target_link_libraries(headphones PRIVATE Qt6::Widgets Qt6::Bluetooth)
 
 add_custom_command(TARGET headphones POST_BUILD
