@@ -4,8 +4,7 @@
 #include <QWidget>
 #include <QVBoxLayout>
 #include <QLabel>
-#include <QVBoxLayout>
-
+#include <QMessageBox>
 MainWindow::MainWindow(QWidget* parent)
     : QMainWindow(parent) {
     
@@ -25,8 +24,13 @@ MainWindow::MainWindow(QWidget* parent)
     centralWidget->setStyleSheet("#central { border-image: url(:/background.png) 0 0 0 0 stretch stretch; }");
     centralWidget->setAttribute(Qt::WA_StyledBackground, true);
     */
+    QPushButton* StarBtn=new QPushButton("Текст", centralWidget);
+    QObject::connect(StarBtn, &QPushButton::clicked, onClick);
 
 
+    centr->addWidget(StarBtn);
+    
+    
     QFont font = FirstWindow->font();// часть в  которой я редачу текст
     font.setPointSize(20);
     font.setBold(true);
@@ -40,4 +44,8 @@ MainWindow::MainWindow(QWidget* parent)
     centralWidget->setStyleSheet("#central { background-color: red; }");
 
 }
-
+void onClick() {
+    QMessageBox msgBox;    
+    msgBox.setText("!"); 
+    msgBox.exec();
+}
